@@ -1,153 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
+  <?php
 @include "components/head.php";
 ?>
 
-<body class="hold-transition sidebar-mini">
-  <div class="wrapper">
-    <!-- Navbar -->
-    <?php
-    @include "components/navBar.php";
-    @include "components/sideBar.php";
-    ?>
-    <!-- /.navbar -->
-
-
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0">Statisctical Data</h1>
-            </div>
-            <!-- /.col -->
-
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
+  <body class="hold-transition lockscreen">
+    <!-- Automatic element centering -->
+    <div class="lockscreen-wrapper">
+      <div class="lockscreen-logo">
+        <a href="index2.html"><b>Health</b>IT</a>
       </div>
-      <!-- /.content-header -->
+      <!-- User name -->
+      <div class="lockscreen-name">Doctor Login</div>
 
-      <!-- Main content -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-header border-0">
-                  <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Bioline SD table</h3>
-                    <a href="javascript:void(0);">View Statisctics</a>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="d-flex">
-                    <p class="d-flex flex-column">
-                      <span class="text-bold text-lg">820</span>
-                      <span>This Month Growth Rate</span>
-                    </p>
-                    <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-success">
-                        <i class="fas fa-arrow-up"></i> 12.5%
-                      </span>
-                      <span class="text-muted">Since last week</span>
-                    </p>
-                  </div>
-                  <!-- /.d-flex -->
-
-                  <div class="position-relative mb-4">
-                    <canvas id="visitors-chart" height="200"></canvas>
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-end">
-                    <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> This Week
-                    </span>
-
-                    <span>
-                      <i class="fas fa-square text-gray"></i> Last Week
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card -->
-
-              <!-- /.card -->
-            </div>
-            <!-- /.col-md-6 -->
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-header border-0">
-                  <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Patients</h3>
-                    <a href="javascript:void(0);">View Report</a>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="d-flex">
-                    <p class="d-flex flex-column">
-                      <span class="text-bold text-lg">$18,230.00</span>
-                    </p>
-                    <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-success">
-                        <i class="fas fa-arrow-up"></i> 33.1%
-                      </span>
-                      <span class="text-muted">Affection Rates</span>
-                    </p>
-                  </div>
-                  <!-- /.d-flex -->
-
-                  <div class="position-relative mb-4">
-                    <canvas id="Patients-chart" height="200"></canvas>
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-end">
-                    <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> This year
-                    </span>
-
-                    <span>
-                      <i class="fas fa-square text-gray"></i> Last year
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card -->
-            </div>
-            <!-- /.col-md-6 -->
-          </div>
-          <!-- /.row -->
+      <!-- START LOCK SCREEN ITEM -->
+      <div style="padding: 10px" class="lockscreen-item">
+        <!-- lockscreen image -->
+        <div class="lockscreen-image">
+          <img src="assets/maseno.png" alt="User Image" />
         </div>
-        <!-- /.container-fluid -->
+        <!-- /.lockscreen-image -->
+
+        <!-- lockscreen credentials (contains the form) -->
+        <form id="loginForm" class="lockscreen-credentials">
+          <div>
+            <div class="input-group">
+              <input
+                type="text"
+                id="doctorID"
+                required
+                class="form-control input-custom"
+                placeholder="Doctor ID"
+              />
+            </div>
+          </div>
+          <div>
+            <div class="input-group">
+              <input
+                type="password"
+                id="doctorpass"
+                required
+                class="form-control input-custom"
+                placeholder="password"
+              />
+
+              <div class="input-group-append">
+                <button type="submit" class="btn">
+                  <i class="fas fa-arrow-right text-muted"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- /.lockscreen credentials -->
       </div>
-      <!-- /.content -->
+      <!-- /.lockscreen-item -->
+      <div class="help-block text-center">
+        Enter your password to retrieve your session
+      </div>
+
+      <div class="lockscreen-footer text-center">
+        Copyright &copy; HealthIT hackathon <br />
+      </div>
     </div>
-    <!-- /.content-wrapper -->
+    <!-- /.center -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-
-    <!-- Main Footer -->
-    <?php
-    @include "components/footer.php";
-
-    ?>
-  </div>
-  <!-- ./wrapper -->
-
-  <?php
-  @include "components/scripts.php";
-
-  ?>
-</body>
-
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
