@@ -2,7 +2,9 @@
 
 ## Hackathon
 
-# API url : https://msuhealthit.herokuapp.com/api/v1/data
+## API url : https://msuhealthit.herokuapp.com/api/v1/data
+
+## Library https://www.chartjs.org/
 
 ### Pages
 
