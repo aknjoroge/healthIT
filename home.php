@@ -16,7 +16,7 @@
     ?>
     <!-- /.navbar -->
 
-
+    <span id="homeIdentifier"></span>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -41,89 +41,208 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
+
+            <div class="col-md-6">
+              <div class="card p-4 text-center bg-info text-light">
+                <div class="card-body">
+                  <h5 class="card-title">Female Samples</h5>
+                  <h2 id="totalfemale" class="card-text">00 </h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card p-4 text-center bg-info text-light">
+                <div class="card-body">
+                  <h5 class="card-title">Male Samples </h5>
+                  <h2 id="totalmale" class="card-text">00 </h2>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <!--Item-->
             <div class="col-lg-6">
               <div class="card">
                 <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Bioline SD table</h3>
-                    <a href="javascript:void(0);">View Statisctics</a>
+                    <h3 class="card-title">Bioline SD Male collection table</h3>
+
                   </div>
                 </div>
                 <div class="card-body">
                   <div class="d-flex">
                     <p class="d-flex flex-column">
-                      <span class="text-bold text-lg">820</span>
-                      <span>This Month Growth Rate</span>
+                      <span id="totalmaleSamples" class="text-bold text-lg">820</span>
+                      <span>Total Collected</span>
                     </p>
                     <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-success">
+                      <span id="startsmaleNumber" class="text-success">
                         <i class="fas fa-arrow-up"></i> 12.5%
                       </span>
-                      <span class="text-muted">Since last week</span>
+                      <span class="text-muted">Since The start</span>
                     </p>
                   </div>
                   <!-- /.d-flex -->
 
-                  <div class="position-relative mb-4">
-                    <canvas id="visitors-chart" height="200"></canvas>
+                  <div>
+                    <canvas id="maleTable"></canvas>
                   </div>
 
-                  <div class="d-flex flex-row justify-content-end">
-                    <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> This Week
-                    </span>
 
-                    <span>
-                      <i class="fas fa-square text-gray"></i> Last Week
-                    </span>
-                  </div>
+
                 </div>
               </div>
               <!-- /.card -->
 
               <!-- /.card -->
             </div>
-            <!-- /.col-md-6 -->
+            <!--END Item-->
+
+            <!--Item-->
             <div class="col-lg-6">
               <div class="card">
                 <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Patients</h3>
-                    <a href="javascript:void(0);">View Report</a>
+                    <h3 class="card-title">Bioline SD FeMale collection table</h3>
+
                   </div>
                 </div>
                 <div class="card-body">
                   <div class="d-flex">
                     <p class="d-flex flex-column">
-                      <span class="text-bold text-lg">$18,230.00</span>
+                      <span id="totalfemaleSamples" class="text-bold text-lg">820</span>
+                      <span>Total Collected</span>
                     </p>
                     <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-success">
-                        <i class="fas fa-arrow-up"></i> 33.1%
+                      <span id="startsfemaleNumber" class="text-success">
+                        <i class="fas fa-arrow-up"></i> 12.5%
                       </span>
-                      <span class="text-muted">Affection Rates</span>
+                      <span class="text-muted">Since The start</span>
                     </p>
                   </div>
                   <!-- /.d-flex -->
 
-                  <div class="position-relative mb-4">
-                    <canvas id="Patients-chart" height="200"></canvas>
+                  <div>
+                    <canvas id="femaleTable"></canvas>
                   </div>
 
-                  <div class="d-flex flex-row justify-content-end">
-                    <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> This year
-                    </span>
 
-                    <span>
-                      <i class="fas fa-square text-gray"></i> Last year
-                    </span>
-                  </div>
+
                 </div>
               </div>
               <!-- /.card -->
+
+              <!-- /.card -->
             </div>
-            <!-- /.col-md-6 -->
+            <!--END Item-->
+
+
+
+            <!--Item-->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Bioline SD FeMale positiveSamples table</h3>
+
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex">
+                    <p class="d-flex flex-column">
+                      <span id="totalpositivefemaleSamples" class="text-bold text-lg">820</span>
+                      <span>Total Positive</span>
+                    </p>
+                    <p class="ml-auto d-flex flex-column text-right">
+                      <span id="startspositivefemaleNumber" class="text-success">
+                        <i class="fas fa-arrow-up"></i> 12.5%
+                      </span>
+                      <span class="text-muted">Since The start</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+
+                  <div>
+                    <canvas id="femalepositiveTable"></canvas>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <!-- /.card -->
+
+              <!-- /.card -->
+            </div>
+            <!--END Item-->
+
+            <!--Item-->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Bioline SD Male positiveSamples table</h3>
+
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex">
+                    <p class="d-flex flex-column">
+                      <span id="totalpositivemaleSamples" class="text-bold text-lg">820</span>
+                      <span>Total Positive</span>
+                    </p>
+                    <p class="ml-auto d-flex flex-column text-right">
+                      <span id="startspositivemaleNumber" class="text-success">
+                        <i class="fas fa-arrow-up"></i> 12.5%
+                      </span>
+                      <span class="text-muted">Since The start</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+
+                  <div>
+                    <canvas id="malepositiveTable"></canvas>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <!-- /.card -->
+
+              <!-- /.card -->
+            </div>
+            <!--END Item-->
+
+            <!--Item-->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Bar Data</h3>
+
+                  </div>
+                </div>
+                <div class="card-body">
+
+                  <!-- /.d-flex -->
+
+                  <div>
+                    <canvas id="barOneTable"></canvas>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <!-- /.card -->
+
+              <!-- /.card -->
+            </div>
+            <!--END Item-->
+
           </div>
           <!-- /.row -->
         </div>

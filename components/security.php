@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 if (isset($_COOKIE["HealthIT"])) {
     $token = $_COOKIE["HealthIT"];
 
@@ -25,7 +25,29 @@ if (isset($_COOKIE["HealthIT"])) {
     if ($result === FALSE) { /* Handle error */
         header('Location: http://localhost/Health%20IT/code/healthIT/');
     }
-    echo $result->"status";
+
+
+    $resultArray = json_decode($result, true);
+
+    foreach ($resultArray as $key => $item) {
+        $status = $item["status"];
+
+        if ($key == "status") {
+            if ($item == "authenticated") {
+            } else {
+                header('Location: http://localhost/Health%20IT/code/healthIT/');
+            }
+        }
+        if ($key == "user") {
+            $_SESSION["firstname"] = $item["firstname"];
+            $_SESSION["doctorID"]  =  $item["lastName"];
+            $_SESSION["doctorID"] =  $item["doctorID"];
+        }
+    }
+
+
+
+
 
     // var_dump($result);
 } else {
