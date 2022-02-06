@@ -1,6 +1,8 @@
 let loginForm = document.getElementById("loginForm");
 let homeIdentifier = document.getElementById("homeIdentifier");
-
+let stage = true;
+let devURl = "http://localhost:4000";
+let prodURl = "https://msuhealthit.herokuapp.com";
 if (loginForm) {
   let doctorpass = document.getElementById("doctorpass");
   let ID = document.getElementById("doctorID");
@@ -23,10 +25,6 @@ if (loginForm) {
       doctorID,
       password,
     };
-
-    let devURl = "http://localhost:4000";
-    let prodURl = "https://msuhealthit.herokuapp.com";
-    let stage = true;
 
     const response = await axios.post(
       `${stage ? prodURl : devURl}/api/v1/users/login`,
@@ -163,6 +161,14 @@ async function barGraph(tableNumber = 0) {
   let tableSelected = responsedata[tableNumber];
 
   let dataSet = tableSelected.dataSet;
+  let colected = dataSet.samplecollected;
+  let ageArray = [];
+  colected.forEach(function (item) {
+    ageArray.push(item.age);
+  });
+
+  console.log("TC-88", ageArray);
+
   const labels = [
     "January",
     "February",
