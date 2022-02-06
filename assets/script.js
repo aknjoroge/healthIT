@@ -163,33 +163,50 @@ async function barGraph(tableNumber = 0) {
   let dataSet = tableSelected.dataSet;
   let colected = dataSet.samplecollected;
   let ageArray = [];
+  let maleData = [];
+  let femaleData = [];
   colected.forEach(function (item) {
     ageArray.push(item.age);
+    maleData.push(item.male);
+    femaleData.push(item.female);
   });
 
-  console.log("TC-88", ageArray);
-
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  const labels = ageArray;
 
   const data = {
     labels: labels,
     datasets: [
       {
-        label: "My First Dataset",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        label: `${tableSelected.name} Collection`,
+        data: maleData,
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(255, 159, 64, 0.2)",
+          "rgba(255, 205, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          "rgba(201, 203, 207, 0.2)",
+        ],
+        borderColor: [
+          "rgb(255, 99, 132)",
+          "rgb(255, 159, 64)",
+          "rgb(255, 205, 86)",
+          "rgb(75, 192, 192)",
+          "rgb(54, 162, 235)",
+          "rgb(153, 102, 255)",
+          "rgb(201, 203, 207)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+  const datatwo = {
+    labels: labels,
+    datasets: [
+      {
+        label: `${tableSelected.name} Collection`,
+        data: femaleData,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(255, 159, 64, 0.2)",
@@ -223,7 +240,136 @@ async function barGraph(tableNumber = 0) {
       },
     },
   };
-  const myChart = new Chart(document.getElementById("barOneTable"), config);
+  const configtwo = {
+    type: "bar",
+    data: datatwo,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  };
+  new Chart(document.getElementById("barOneTable"), config);
+  new Chart(document.getElementById("barTwoTable"), configtwo);
+
+  //
+}
+
+async function totalSats(tableNumber = 0) {
+  const response = await axios.get(`${stage ? prodURl : devURl}/api/v1/data`);
+  let responsedata = response.data.apiObjects;
+
+  let tableSelected = responsedata[tableNumber];
+
+  let dataSet = tableSelected.dataSet;
+  let collected = dataSet.samplecollected;
+  let affected = dataSet.positiveSamples;
+  let malecollected = [];
+  let malepositive = [];
+  let femalecollected = [];
+  let femalecpositive = [];
+  collected.forEach(function (item) {
+    malecollected.push(item.male);
+    femalecollected.push(item.female);
+  });
+  affected.forEach(function (item) {
+    malepositive.push(item.male);
+    femalecpositive.push(item.female);
+  });
+
+  let totalMaleCollected = malecollected.reduce(function (
+    previousValue,
+    currentValue
+  ) {
+    return previousValue + currentValue;
+  });
+  let totalMalePostive = malepositive.reduce(function (
+    previousValue,
+    currentValue
+  ) {
+    return previousValue + currentValue;
+  });
+  let totalfemalecollected = femalecollected.reduce(function (
+    previousValue,
+    currentValue
+  ) {
+    return previousValue + currentValue;
+  });
+  let totalfemalecpositive = femalecpositive.reduce(function (
+    previousValue,
+    currentValue
+  ) {
+    return previousValue + currentValue;
+  });
+
+  const data = {
+    labels: ["Negative", "Positive"],
+    datasets: [
+      {
+        label: "Male Connected Bar",
+        data: [totalMaleCollected, totalMalePostive],
+        backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)"],
+        hoverOffset: 4,
+      },
+    ],
+  };
+  const datatwo = {
+    labels: ["Negative", "Positive"],
+    datasets: [
+      {
+        label: "Female Connected Bar",
+        data: [totalfemalecollected, totalfemalecpositive],
+        backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)"],
+        hoverOffset: 4,
+      },
+    ],
+  };
+  const config = {
+    type: "doughnut",
+    data: data,
+  };
+  const configDog2 = {
+    type: "doughnut",
+    data: datatwo,
+  };
+
+  new Chart(document.getElementById("dognuts"), config);
+  new Chart(document.getElementById("dognutsfemale"), configDog2);
+
+  let total = Math.ceil(totalfemalecollected + totalMaleCollected);
+  document.getElementById("totalRecordsModal").innerHTML = total;
+
+  let rate = Math.ceil(totalMalePostive + totalfemalecpositive / total);
+
+  document.getElementById("totalRecordsRates").innerHTML = `${rate}%`;
+
+  let higher = totalMalePostive - totalfemalecpositive;
+  if (higher > 1) {
+    document.getElementById(
+      "higherRecord"
+    ).innerHTML = `The male records data is ${
+      totalMalePostive - totalfemalecpositive / 100
+    }% higher than the male Statisctics`;
+    document.getElementById(
+      "recomend"
+    ).innerHTML = `Recomendation : Male patients should be assigned more doctors`;
+  } else {
+    document.getElementById(
+      "higherRecord"
+    ).innerHTML = `The Female  records data is ${
+      totalfemalecpositive - totalMalePostive / 100
+    }% higher than the male Statisctics`;
+    document.getElementById(
+      "recomend"
+    ).innerHTML = `Recomendation : Female patients should be assigned more doctors`;
+  }
+
+  if(totalfemalecollected>totalMaleCollected){
+      document.getElementById("stats")="An increase in number male sampling will lead to an increase in male positive data"
+  }
+
 }
 
 if (homeIdentifier) {
@@ -252,4 +398,11 @@ if (homeIdentifier) {
     table: "malepositiveTable",
   });
   barGraph();
+  totalSats();
+
+  document
+    .getElementById("statiscticBtn")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+    });
 }

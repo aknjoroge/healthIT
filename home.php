@@ -76,6 +76,7 @@
                     <p class="d-flex flex-column">
                       <span id="totalmaleSamples" class="text-bold text-lg">820</span>
                       <span>Total Collected</span>
+                      <span>Age / Number</span>
                     </p>
                     <p class="ml-auto d-flex flex-column text-right">
                       <span id="startsmaleNumber" class="text-success">
@@ -114,6 +115,7 @@
                     <p class="d-flex flex-column">
                       <span id="totalfemaleSamples" class="text-bold text-lg">820</span>
                       <span>Total Collected</span>
+                      <span>Age / Number</span>
                     </p>
                     <p class="ml-auto d-flex flex-column text-right">
                       <span id="startsfemaleNumber" class="text-success">
@@ -154,6 +156,7 @@
                     <p class="d-flex flex-column">
                       <span id="totalpositivefemaleSamples" class="text-bold text-lg">820</span>
                       <span>Total Positive</span>
+                      <span>Age / Number</span>
                     </p>
                     <p class="ml-auto d-flex flex-column text-right">
                       <span id="startspositivefemaleNumber" class="text-success">
@@ -192,6 +195,7 @@
                     <p class="d-flex flex-column">
                       <span id="totalpositivemaleSamples" class="text-bold text-lg">820</span>
                       <span>Total Positive</span>
+                      <span>Age / Number</span>
                     </p>
                     <p class="ml-auto d-flex flex-column text-right">
                       <span id="startspositivemaleNumber" class="text-success">
@@ -221,7 +225,11 @@
               <div class="card">
                 <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Bar Data</h3>
+                    <h3 class="card-title">Male Bar Data
+                      <br />
+                      <span>Number / Age</span>
+                    </h3>
+
 
                   </div>
                 </div>
@@ -231,6 +239,86 @@
 
                   <div>
                     <canvas id="barOneTable"></canvas>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <!-- /.card -->
+
+              <!-- /.card -->
+            </div>
+            <!--END Item-->
+            <!--Item-->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Female Bar Data
+                      <br />
+                      <span>Number / Age</span>
+                    </h3>
+
+
+                  </div>
+                </div>
+                <div class="card-body">
+
+                  <!-- /.d-flex -->
+
+                  <div>
+                    <canvas id="barTwoTable"></canvas>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <!-- /.card -->
+
+              <!-- /.card -->
+            </div>
+            <!--END Item-->
+            <!--Item-->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title"> Male Infection Stats </h3>
+
+                  </div>
+                </div>
+                <div class="card-body">
+
+                  <!-- /.d-flex -->
+
+                  <div>
+                    <canvas id="dognuts"></canvas>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <!-- /.card -->
+
+              <!-- /.card -->
+            </div>
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title"> Female Infection Stats </h3>
+
+                  </div>
+                </div>
+                <div class="card-body">
+
+                  <!-- /.d-flex -->
+
+                  <div>
+                    <canvas id="dognutsfemale"></canvas>
                   </div>
 
 
@@ -261,6 +349,7 @@
     <!-- Main Footer -->
     <?php
     @include "components/footer.php";
+    @include "components/modals.php";
 
     ?>
   </div>

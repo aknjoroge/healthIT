@@ -53,14 +53,17 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
+        <li class="text-center nav-item">
+          <button
+            id="statiscticBtn"
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
             <i class="nav-icon fas fa-hourglass"></i>
-            <p>
-              Statisctics
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
+            Statisctics
+          </button>
         </li>
       </ul>
     </nav>
